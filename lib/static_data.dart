@@ -49,7 +49,7 @@ Future<Box<T>?> openBox<T extends Object>({required String name}) async {
 }
 
 T? getStorage<T extends Object>({required String name, required String key}) {
-  return Hinzve.box<T>(name).get(key);
+  return Hive.box<T>(name).get(key);
 }
 
 Future<void> addStorage<T extends Object>({
