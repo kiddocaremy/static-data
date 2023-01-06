@@ -49,13 +49,13 @@ class CarerGetStaticDataResponseAdapter
           (fields[23] as List?)?.cast<CarerBreadwinnerStatus>(),
       carerIncomeCategories: (fields[24] as List?)?.cast<CarerIncomeCategory>(),
       carerOnboardingVideo: fields[25] as String?,
-    );
+    )..carerIntroQuizzes = fields[26] as CarerIntroQuizzes?;
   }
 
   @override
   void write(BinaryWriter writer, CarerGetStaticDataResponse obj) {
     writer
-      ..writeByte(26)
+      ..writeByte(27)
       ..writeByte(0)
       ..write(obj.states)
       ..writeByte(1)
@@ -107,7 +107,9 @@ class CarerGetStaticDataResponseAdapter
       ..writeByte(24)
       ..write(obj.carerIncomeCategories)
       ..writeByte(25)
-      ..write(obj.carerOnboardingVideo);
+      ..write(obj.carerOnboardingVideo)
+      ..writeByte(26)
+      ..write(obj.carerIntroQuizzes);
   }
 
   @override
@@ -289,7 +291,10 @@ CarerGetStaticDataResponse _$CarerGetStaticDataResponseFromJson(
           ?.map((e) => CarerIncomeCategory.fromJson(e as Map<String, dynamic>))
           .toList(),
       carerOnboardingVideo: json['carerOnboardingVideo'] as String?,
-    );
+    )..carerIntroQuizzes = json['carerIntroQuizzes'] == null
+        ? null
+        : CarerIntroQuizzes.fromJson(
+            json['carerIntroQuizzes'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$CarerGetStaticDataResponseToJson(
         CarerGetStaticDataResponse instance) =>
@@ -320,6 +325,7 @@ Map<String, dynamic> _$CarerGetStaticDataResponseToJson(
       'carerBreadwinnerStatuses': instance.carerBreadwinnerStatuses,
       'carerIncomeCategories': instance.carerIncomeCategories,
       'carerOnboardingVideo': instance.carerOnboardingVideo,
+      'carerIntroQuizzes': instance.carerIntroQuizzes,
     };
 
 CustomerGetStaticDataResponse _$CustomerGetStaticDataResponseFromJson(

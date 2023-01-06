@@ -8,7 +8,7 @@ part of 'answer.dart';
 
 class AnswerAdapter extends TypeAdapter<Answer> {
   @override
-  final int typeId = 27;
+  final int typeId = 29;
 
   @override
   Answer read(BinaryReader reader) {
