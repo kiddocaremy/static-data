@@ -49,13 +49,15 @@ class CarerGetStaticDataResponseAdapter
           (fields[23] as List?)?.cast<CarerBreadwinnerStatus>(),
       carerIncomeCategories: (fields[24] as List?)?.cast<CarerIncomeCategory>(),
       carerOnboardingVideo: fields[25] as String?,
-    )..carerIntroQuizzes = fields[26] as CarerIntroQuizzes?;
+    )
+      ..carerIntroQuizzes = fields[26] as CarerIntroQuizzes?
+      ..carerPsychometricQuestions = fields[27] as CarerIntroQuizzes?;
   }
 
   @override
   void write(BinaryWriter writer, CarerGetStaticDataResponse obj) {
     writer
-      ..writeByte(27)
+      ..writeByte(28)
       ..writeByte(0)
       ..write(obj.states)
       ..writeByte(1)
@@ -109,7 +111,9 @@ class CarerGetStaticDataResponseAdapter
       ..writeByte(25)
       ..write(obj.carerOnboardingVideo)
       ..writeByte(26)
-      ..write(obj.carerIntroQuizzes);
+      ..write(obj.carerIntroQuizzes)
+      ..writeByte(27)
+      ..write(obj.carerPsychometricQuestions);
   }
 
   @override
@@ -291,10 +295,15 @@ CarerGetStaticDataResponse _$CarerGetStaticDataResponseFromJson(
           ?.map((e) => CarerIncomeCategory.fromJson(e as Map<String, dynamic>))
           .toList(),
       carerOnboardingVideo: json['carerOnboardingVideo'] as String?,
-    )..carerIntroQuizzes = json['carerIntroQuizzes'] == null
-        ? null
-        : CarerIntroQuizzes.fromJson(
-            json['carerIntroQuizzes'] as Map<String, dynamic>);
+    )
+      ..carerIntroQuizzes = json['carerIntroQuizzes'] == null
+          ? null
+          : CarerIntroQuizzes.fromJson(
+              json['carerIntroQuizzes'] as Map<String, dynamic>)
+      ..carerPsychometricQuestions = json['carerPsychometricQuestions'] == null
+          ? null
+          : CarerIntroQuizzes.fromJson(
+              json['carerPsychometricQuestions'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$CarerGetStaticDataResponseToJson(
         CarerGetStaticDataResponse instance) =>
@@ -326,6 +335,7 @@ Map<String, dynamic> _$CarerGetStaticDataResponseToJson(
       'carerIncomeCategories': instance.carerIncomeCategories,
       'carerOnboardingVideo': instance.carerOnboardingVideo,
       'carerIntroQuizzes': instance.carerIntroQuizzes,
+      'carerPsychometricQuestions': instance.carerPsychometricQuestions,
     };
 
 CustomerGetStaticDataResponse _$CustomerGetStaticDataResponseFromJson(

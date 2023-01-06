@@ -87,10 +87,12 @@ class CarerGetStaticDataResponse extends HiveObject {
   @HiveField(25)
   @JsonKey(name: 'carerOnboardingVideo')
   String? carerOnboardingVideo;
-
   @HiveField(26)
   @JsonKey(name: 'carerIntroQuizzes')
   CarerIntroQuizzes? carerIntroQuizzes;
+  @HiveField(27)
+  @JsonKey(name: 'carerPsychometricQuestions')
+  CarerIntroQuizzes? carerPsychometricQuestions;
   CarerGetStaticDataResponse(
       {this.states,
       this.postcodes,

@@ -12,7 +12,7 @@ class Answer extends HiveObject {
 
   @HiveField(1)
   @JsonKey(name: 'en')
-  Map<String, String> en;
+  Map<String, String>? en;
 
   Answer({required this.ms, required this.en});
 

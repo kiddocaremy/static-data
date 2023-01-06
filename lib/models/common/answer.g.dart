@@ -18,7 +18,7 @@ class AnswerAdapter extends TypeAdapter<Answer> {
     };
     return Answer(
       ms: (fields[0] as Map).cast<String, String>(),
-      en: (fields[1] as Map).cast<String, String>(),
+      en: (fields[1] as Map?)?.cast<String, String>(),
     );
   }
 
@@ -49,7 +49,9 @@ class AnswerAdapter extends TypeAdapter<Answer> {
 
 Answer _$AnswerFromJson(Map<String, dynamic> json) => Answer(
       ms: Map<String, String>.from(json['ms'] as Map),
-      en: Map<String, String>.from(json['en'] as Map),
+      en: (json['en'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
     );
 
 Map<String, dynamic> _$AnswerToJson(Answer instance) => <String, dynamic>{
