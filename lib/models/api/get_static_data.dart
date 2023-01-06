@@ -1,5 +1,6 @@
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
+import '../common/carer_intro_quizzes.dart';
 
 import '../common/common.dart';
 
@@ -86,6 +87,10 @@ class CarerGetStaticDataResponse extends HiveObject {
   @HiveField(25)
   @JsonKey(name: 'carerOnboardingVideo')
   String? carerOnboardingVideo;
+
+  @HiveField(26)
+  @JsonKey(name: 'carerIntroQuizzes')
+  CarerIntroQuizzes? carerIntroQuizzes;
   CarerGetStaticDataResponse(
       {this.states,
       this.postcodes,
