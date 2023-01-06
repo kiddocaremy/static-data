@@ -21,13 +21,14 @@ class CarerIntroQuizzesAdapter extends TypeAdapter<CarerIntroQuizzes> {
       type: fields[1] as String,
       isRequired: fields[2] as bool,
       question: fields[3] as Question,
+      answerList: fields[4] as Answer,
     );
   }
 
   @override
   void write(BinaryWriter writer, CarerIntroQuizzes obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(5)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -35,7 +36,9 @@ class CarerIntroQuizzesAdapter extends TypeAdapter<CarerIntroQuizzes> {
       ..writeByte(2)
       ..write(obj.isRequired)
       ..writeByte(3)
-      ..write(obj.question);
+      ..write(obj.question)
+      ..writeByte(4)
+      ..write(obj.answerList);
   }
 
   @override
@@ -59,6 +62,7 @@ CarerIntroQuizzes _$CarerIntroQuizzesFromJson(Map<String, dynamic> json) =>
       type: json['type'] as String,
       isRequired: json['isRequired'] as bool,
       question: Question.fromJson(json['question'] as Map<String, dynamic>),
+      answerList: Answer.fromJson(json['answerList'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CarerIntroQuizzesToJson(CarerIntroQuizzes instance) =>
@@ -67,4 +71,5 @@ Map<String, dynamic> _$CarerIntroQuizzesToJson(CarerIntroQuizzes instance) =>
       'type': instance.type,
       'isRequired': instance.isRequired,
       'question': instance.question,
+      'answerList': instance.answerList,
     };
