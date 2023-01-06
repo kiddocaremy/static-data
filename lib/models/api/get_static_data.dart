@@ -1,6 +1,5 @@
 import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
-import '../common/carer_intro_quizzes.dart';
 
 import '../common/common.dart';
 
@@ -93,35 +92,38 @@ class CarerGetStaticDataResponse extends HiveObject {
   @HiveField(27)
   @JsonKey(name: 'carerPsychometricQuestions')
   CarerIntroQuizzes? carerPsychometricQuestions;
-  CarerGetStaticDataResponse(
-      {this.states,
-      this.postcodes,
-      this.nationalities,
-      this.banks,
-      this.races,
-      this.languages,
-      this.religions,
-      this.maritalStatuses,
-      this.occupations,
-      this.carerStatuses,
-      this.carerTypes,
-      this.rateHours,
-      this.rateExtras,
-      this.rateChildren,
-      this.carerReviewQuestions,
-      this.jobStatuses,
-      this.carerApplicationStatuses,
-      this.supportIssues,
-      this.institutions,
-      this.carerHighestEducations,
-      this.carerEducationStatuses,
-      this.carerWorkStatuses,
-      this.carerEmploymentStatuses,
-      this.carerBreadwinnerStatuses,
-      this.carerIncomeCategories,
-      this.carerOnboardingVideo});
 
-  factory CarerGetStaticDataResponse.fromJson(Map<String, dynamic> json) => _$CarerGetStaticDataResponseFromJson(json);
+  CarerGetStaticDataResponse({
+    this.states,
+    this.postcodes,
+    this.nationalities,
+    this.banks,
+    this.races,
+    this.languages,
+    this.religions,
+    this.maritalStatuses,
+    this.occupations,
+    this.carerStatuses,
+    this.carerTypes,
+    this.rateHours,
+    this.rateExtras,
+    this.rateChildren,
+    this.carerReviewQuestions,
+    this.jobStatuses,
+    this.carerApplicationStatuses,
+    this.supportIssues,
+    this.institutions,
+    this.carerHighestEducations,
+    this.carerEducationStatuses,
+    this.carerWorkStatuses,
+    this.carerEmploymentStatuses,
+    this.carerBreadwinnerStatuses,
+    this.carerIncomeCategories,
+    this.carerOnboardingVideo,
+  });
+
+  factory CarerGetStaticDataResponse.fromJson(Map<String, dynamic> json) =>
+      _$CarerGetStaticDataResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$CarerGetStaticDataResponseToJson(this);
 }
@@ -193,7 +195,8 @@ class CustomerGetStaticDataResponse extends HiveObject {
     this.races,
   });
 
-  factory CustomerGetStaticDataResponse.fromJson(Map<String, dynamic> json) => _$CustomerGetStaticDataResponseFromJson(json);
+  factory CustomerGetStaticDataResponse.fromJson(Map<String, dynamic> json) =>
+      _$CustomerGetStaticDataResponseFromJson(json);
 
   Map<String, dynamic> toJson() => _$CustomerGetStaticDataResponseToJson(this);
 }
