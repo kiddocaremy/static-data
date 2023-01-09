@@ -49,9 +49,10 @@ class CarerGetStaticDataResponseAdapter
           (fields[23] as List?)?.cast<CarerBreadwinnerStatus>(),
       carerIncomeCategories: (fields[24] as List?)?.cast<CarerIncomeCategory>(),
       carerOnboardingVideo: fields[25] as String?,
-    )
-      ..carerIntroQuizzes = fields[26] as CarerIntroQuizzes?
-      ..carerPsychometricQuestions = fields[27] as CarerIntroQuizzes?;
+      carerIntroQuizzes: (fields[26] as List?)?.cast<CarerIntroQuizzes>(),
+      carerPsychometricQuestions:
+          (fields[27] as List?)?.cast<CarerIntroQuizzes>(),
+    );
   }
 
   @override
@@ -295,15 +296,14 @@ CarerGetStaticDataResponse _$CarerGetStaticDataResponseFromJson(
           ?.map((e) => CarerIncomeCategory.fromJson(e as Map<String, dynamic>))
           .toList(),
       carerOnboardingVideo: json['carerOnboardingVideo'] as String?,
-    )
-      ..carerIntroQuizzes = json['carerIntroQuizzes'] == null
-          ? null
-          : CarerIntroQuizzes.fromJson(
-              json['carerIntroQuizzes'] as Map<String, dynamic>)
-      ..carerPsychometricQuestions = json['carerPsychometricQuestions'] == null
-          ? null
-          : CarerIntroQuizzes.fromJson(
-              json['carerPsychometricQuestions'] as Map<String, dynamic>);
+      carerIntroQuizzes: (json['carerIntroQuizzes'] as List<dynamic>?)
+          ?.map((e) => CarerIntroQuizzes.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      carerPsychometricQuestions: (json['carerPsychometricQuestions']
+              as List<dynamic>?)
+          ?.map((e) => CarerIntroQuizzes.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
 
 Map<String, dynamic> _$CarerGetStaticDataResponseToJson(
         CarerGetStaticDataResponse instance) =>

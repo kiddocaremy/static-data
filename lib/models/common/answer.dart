@@ -8,7 +8,7 @@ part 'answer.g.dart';
 class Answer extends HiveObject {
   @HiveField(0)
   @JsonKey(name: 'ms')
-  Map<String, String> ms;
+  Map<String, String>? ms;
 
   @HiveField(1)
   @JsonKey(name: 'en')

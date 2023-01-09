@@ -17,7 +17,7 @@ class AnswerAdapter extends TypeAdapter<Answer> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Answer(
-      ms: (fields[0] as Map).cast<String, String>(),
+      ms: (fields[0] as Map?)?.cast<String, String>(),
       en: (fields[1] as Map?)?.cast<String, String>(),
     );
   }
@@ -48,7 +48,9 @@ class AnswerAdapter extends TypeAdapter<Answer> {
 // **************************************************************************
 
 Answer _$AnswerFromJson(Map<String, dynamic> json) => Answer(
-      ms: Map<String, String>.from(json['ms'] as Map),
+      ms: (json['ms'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
       en: (json['en'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),

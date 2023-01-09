@@ -17,8 +17,8 @@ class QuestionAdapter extends TypeAdapter<Question> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Question(
-      ms: fields[0] as String,
-      en: fields[1] as String,
+      ms: fields[0] as String?,
+      en: fields[1] as String?,
     );
   }
 
@@ -48,8 +48,8 @@ class QuestionAdapter extends TypeAdapter<Question> {
 // **************************************************************************
 
 Question _$QuestionFromJson(Map<String, dynamic> json) => Question(
-      ms: json['ms'] as String,
-      en: json['en'] as String,
+      ms: json['ms'] as String?,
+      en: json['en'] as String?,
     );
 
 Map<String, dynamic> _$QuestionToJson(Question instance) => <String, dynamic>{

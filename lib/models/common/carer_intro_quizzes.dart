@@ -8,6 +8,7 @@ part 'carer_intro_quizzes.g.dart';
 @HiveType(typeId: 27)
 @JsonSerializable()
 class CarerIntroQuizzes extends HiveObject {
+  @override
   @HiveField(0)
   @JsonKey(name: 'id')
   int id;
@@ -23,9 +24,11 @@ class CarerIntroQuizzes extends HiveObject {
   @HiveField(3)
   @JsonKey(name: 'question')
   Question question;
+
   @HiveField(4)
   @JsonKey(name: 'answerList')
-  Answer answerList;
+  Answer? answerList;
+
   CarerIntroQuizzes(
       {required this.id, required this.type, required this.isRequired, required this.question, required this.answerList});
 

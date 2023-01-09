@@ -21,7 +21,7 @@ class CarerIntroQuizzesAdapter extends TypeAdapter<CarerIntroQuizzes> {
       type: fields[1] as String,
       isRequired: fields[2] as bool,
       question: fields[3] as Question,
-      answerList: fields[4] as Answer,
+      answerList: fields[4] as Answer?,
     );
   }
 
@@ -62,7 +62,9 @@ CarerIntroQuizzes _$CarerIntroQuizzesFromJson(Map<String, dynamic> json) =>
       type: json['type'] as String,
       isRequired: json['isRequired'] as bool,
       question: Question.fromJson(json['question'] as Map<String, dynamic>),
-      answerList: Answer.fromJson(json['answerList'] as Map<String, dynamic>),
+      answerList: json['answerList'] == null
+          ? null
+          : Answer.fromJson(json['answerList'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CarerIntroQuizzesToJson(CarerIntroQuizzes instance) =>

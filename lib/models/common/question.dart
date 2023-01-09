@@ -8,11 +8,11 @@ part 'question.g.dart';
 class Question extends HiveObject {
   @HiveField(0)
   @JsonKey(name: 'ms')
-  String ms;
+  String? ms;
 
   @HiveField(1)
   @JsonKey(name: 'en')
-  String en;
+  String? en;
 
   Question({required this.ms, required this.en});
 

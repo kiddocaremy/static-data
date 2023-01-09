@@ -3,8 +3,10 @@ library static_data;
 import 'package:hive/hive.dart';
 
 import 'models/api/api.dart';
+import 'models/common/answer.dart';
 import 'models/common/carer_intro_quizzes.dart';
 import 'models/common/common.dart';
+import 'models/common/question.dart';
 
 export 'package:hive/hive.dart';
 export 'package:hive_flutter/hive_flutter.dart';
@@ -93,6 +95,12 @@ Future<void> initialiseAdapter({required String resourcesHash}) async {
   }
   if (!Hive.isAdapterRegistered(27)) {
     registerAdapter(CarerIntroQuizzesAdapter());
+  }
+  if (!Hive.isAdapterRegistered(28)) {
+    registerAdapter(QuestionAdapter());
+  }
+  if (!Hive.isAdapterRegistered(29)) {
+    registerAdapter(AnswerAdapter());
   }
 }
 

@@ -89,10 +89,10 @@ class CarerGetStaticDataResponse extends HiveObject {
   String? carerOnboardingVideo;
   @HiveField(26)
   @JsonKey(name: 'carerIntroQuizzes')
-  CarerIntroQuizzes? carerIntroQuizzes;
+  List<CarerIntroQuizzes>? carerIntroQuizzes;
   @HiveField(27)
   @JsonKey(name: 'carerPsychometricQuestions')
-  CarerIntroQuizzes? carerPsychometricQuestions;
+  List<CarerIntroQuizzes>? carerPsychometricQuestions;
   CarerGetStaticDataResponse(
       {this.states,
       this.postcodes,
@@ -119,7 +119,9 @@ class CarerGetStaticDataResponse extends HiveObject {
       this.carerEmploymentStatuses,
       this.carerBreadwinnerStatuses,
       this.carerIncomeCategories,
-      this.carerOnboardingVideo});
+      this.carerOnboardingVideo,
+      this.carerIntroQuizzes,
+      this.carerPsychometricQuestions});
 
   factory CarerGetStaticDataResponse.fromJson(Map<String, dynamic> json) => _$CarerGetStaticDataResponseFromJson(json);
 
