@@ -22,7 +22,7 @@ class CarerIntroQuizzes extends HiveObject {
   Question question;
   @HiveField(4)
   @JsonKey(name: 'answerList')
-  Answer answerList;
+  Answer? answerList;
 
   CarerIntroQuizzes({
     required this.id,
@@ -32,8 +32,7 @@ class CarerIntroQuizzes extends HiveObject {
     required this.answerList,
   });
 
-  factory CarerIntroQuizzes.fromJson(Map<String, dynamic> json) =>
-      _$CarerIntroQuizzesFromJson(json);
+  factory CarerIntroQuizzes.fromJson(Map<String, dynamic> json) => _$CarerIntroQuizzesFromJson(json);
 
   Map<String, dynamic> toJson() => _$CarerIntroQuizzesToJson(this);
 }
