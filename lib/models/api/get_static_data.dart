@@ -88,10 +88,10 @@ class CarerGetStaticDataResponse extends HiveObject {
   String? carerOnboardingVideo;
   @HiveField(26)
   @JsonKey(name: 'carerIntroQuizzes')
-  CarerIntroQuizzes? carerIntroQuizzes;
+  List<CarerIntroQuizzes>? carerIntroQuizzes;
   @HiveField(27)
   @JsonKey(name: 'carerPsychometricQuestions')
-  CarerIntroQuizzes? carerPsychometricQuestions;
+  List<CarerIntroQuizzes>? carerPsychometricQuestions;
 
   CarerGetStaticDataResponse({
     this.states,
