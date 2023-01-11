@@ -86,33 +86,41 @@ class CarerGetStaticDataResponse extends HiveObject {
   @HiveField(25)
   @JsonKey(name: 'carerOnboardingVideo')
   String? carerOnboardingVideo;
-  CarerGetStaticDataResponse(
-      {this.states,
-      this.postcodes,
-      this.nationalities,
-      this.banks,
-      this.races,
-      this.languages,
-      this.religions,
-      this.maritalStatuses,
-      this.occupations,
-      this.carerStatuses,
-      this.carerTypes,
-      this.rateHours,
-      this.rateExtras,
-      this.rateChildren,
-      this.carerReviewQuestions,
-      this.jobStatuses,
-      this.carerApplicationStatuses,
-      this.supportIssues,
-      this.institutions,
-      this.carerHighestEducations,
-      this.carerEducationStatuses,
-      this.carerWorkStatuses,
-      this.carerEmploymentStatuses,
-      this.carerBreadwinnerStatuses,
-      this.carerIncomeCategories,
-      this.carerOnboardingVideo});
+  @HiveField(26)
+  @JsonKey(name: 'carerIntroQuizzes')
+  CarerIntroQuizzes? carerIntroQuizzes;
+  @HiveField(27)
+  @JsonKey(name: 'carerPsychometricQuestions')
+  CarerIntroQuizzes? carerPsychometricQuestions;
+
+  CarerGetStaticDataResponse({
+    this.states,
+    this.postcodes,
+    this.nationalities,
+    this.banks,
+    this.races,
+    this.languages,
+    this.religions,
+    this.maritalStatuses,
+    this.occupations,
+    this.carerStatuses,
+    this.carerTypes,
+    this.rateHours,
+    this.rateExtras,
+    this.rateChildren,
+    this.carerReviewQuestions,
+    this.jobStatuses,
+    this.carerApplicationStatuses,
+    this.supportIssues,
+    this.institutions,
+    this.carerHighestEducations,
+    this.carerEducationStatuses,
+    this.carerWorkStatuses,
+    this.carerEmploymentStatuses,
+    this.carerBreadwinnerStatuses,
+    this.carerIncomeCategories,
+    this.carerOnboardingVideo,
+  });
 
   factory CarerGetStaticDataResponse.fromJson(Map<String, dynamic> json) => _$CarerGetStaticDataResponseFromJson(json);
 

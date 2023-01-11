@@ -1,3 +1,4 @@
+export 'answer.dart';
 export 'bank.dart';
 export 'booking_status.dart';
 export 'carer_application_status.dart';
@@ -7,6 +8,7 @@ export 'carer_education_status.dart';
 export 'carer_employment_status.dart';
 export 'carer_highest_education.dart';
 export 'carer_income_category.dart';
+export 'carer_intro_quizzes.dart';
 export 'carer_review_question.dart';
 export 'carer_type.dart';
 export 'carer_work_status.dart';

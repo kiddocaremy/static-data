@@ -90,6 +90,9 @@ Future<void> initialiseAdapter({required String resourcesHash}) async {
   if (!Hive.isAdapterRegistered(26)) {
     registerAdapter(CarerIncomeCategoryAdapter());
   }
+  if (!Hive.isAdapterRegistered(27)) {
+    registerAdapter(CarerIntroQuizzesAdapter());
+  }
 }
 
 void registerAdapter<T extends Object>(TypeAdapter<T> adapter) {
